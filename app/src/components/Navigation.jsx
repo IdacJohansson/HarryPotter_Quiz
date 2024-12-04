@@ -7,10 +7,20 @@ export default function Navigation() {
 
   return (
     <nav>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/createAccount">Create Account</NavLink>
-      <NavLink to="/login">Login</NavLink>
-      {isLoggedIn && <NavLink to="/game">Game</NavLink>}
+      <NavLink className="link-test" to="/">
+        Home
+      </NavLink>
+      <NavLink className="link-test" to="/createAccount">
+        Create Account
+      </NavLink>
+      <NavLink className="link-test" to="/login">
+        Login
+      </NavLink>
+      {isLoggedIn && (
+        <NavLink className="link-test" to="/game">
+          Game
+        </NavLink>
+      )}
     </nav>
   );
 }
