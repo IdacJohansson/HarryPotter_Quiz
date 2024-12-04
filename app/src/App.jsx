@@ -10,13 +10,11 @@ import Game from "../src/pages/game";
 import Quiz from "./pages/quiz";
 import CreateAccount from "./pages/createAccount";
 
-import Navigation from "./components/Navigation";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/createAccount" element={<CreateAccount />} />
