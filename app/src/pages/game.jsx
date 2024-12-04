@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 
+import Box from "../components/Box";
+
 export default function Game() {
   const navigate = useNavigate();
   const { setIsLoggedIn } = useContext(AuthContext);
@@ -15,10 +17,12 @@ export default function Game() {
 
   return (
     <>
-      <h1>Enjoy the game!</h1>
-      <button onClick={handleLogout}>Logout</button>
+      <main>
+        {/* <h1>Enjoy the game!</h1>
+      <button onClick={handleLogout}>Logout</button> */}
 
-      {/* One button to start the game */}
+        <Box title={"Put Your Skills to the Test"} />
+      </main>
     </>
   );
 }
