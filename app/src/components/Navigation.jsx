@@ -17,20 +17,14 @@ export default function Navigation() {
 
   return (
     <nav>
-      <NavLink className="link-test" to="/">
-        Home
+      {isLoggedIn && (
+        <NavLink className="link-text" to="/game">
+          New Game
+        </NavLink>
+      )}
+      <NavLink className="link-text" onClick={handleLogout}>
+        Logout
       </NavLink>
-      {isLoggedIn && (
-        <NavLink className="link-test" to="/game">
-          Game
-        </NavLink>
-      )}
-      {isLoggedIn && (
-        <NavLink className="link-test" to="/quiz">
-          Quiz
-        </NavLink>
-      )}
-      <button onClick={handleLogout}>Logout</button>
     </nav>
   );
 }

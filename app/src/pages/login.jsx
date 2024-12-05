@@ -19,7 +19,7 @@ export default function login() {
           <PaperBox>
             <div className="form-container">
             <div className="go-back-btn">
-              <a href=""onClick={handleNavigate}><i className="go-back-icon bi bi-arrow-left" ></i></a>
+              <a href="#" onClick={handleNavigate}><i className="go-back-icon bi bi-arrow-left" ></i></a>
             </div>
               <LoginForm />
               <img

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 
-import Navigation from "../components/Navigation";
 import PaperBox from "../components/PaperBox";
+import Navigation from "../components/Navigation";
 
 function quiz() {
   const navigate = useNavigate();
@@ -54,19 +54,18 @@ function quiz() {
     if (answer === currentCharacter.name) {
       newButtonColors[answer] = "green";
       setButtonColors(newButtonColors);
-
       setTimeout(() => {
         setQuestionScore(questionScore + 1);
         setupQuestion(data);
         setButtonColors({});
       }, 500);
-
-      // add: timer
     } else {
       newButtonColors[answer] = "red";
       setButtonColors(newButtonColors);
-      alert("Game Over");
-      navigate("/game");
+      setTimeout(() => {
+        alert("Game Over");
+        navigate("/game");
+      }, 500);
     }
   };
 
@@ -84,28 +83,25 @@ function quiz() {
 
   return (
     <>
-      <Navigation />
       <main>
+        <Navigation />
         <div>
           {currentCharacter ? (
             <PaperBox title={`Question ${questionScore + 1}`}>
               <img
+                className="character-img"
                 src={currentCharacter.image}
                 alt={currentCharacter.name}
-                style={{ width: "300px", height: "400px", objectFit: "cover" }}
+                style={{ width: "200px", height: "300px", objectFit: "cover" }}
               />
               <div>
                 {options.map((option) => (
                   <button
+                    className="option-btn"
                     key={option}
                     onClick={() => handleAnswer(option)}
                     style={{
-                      margin: "10px",
-                      padding: "10px 20px",
-                      background: buttonColors[option] || "black",
-                      border: "1px solid black",
-                      cursor: "pointer",
-                      color: "white",
+                      background: buttonColors[option] || "#3d3a33",
                     }}
                   >
                     {option}

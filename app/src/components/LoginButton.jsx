@@ -12,7 +12,7 @@ function LoginButton() {
     <div>
       <button className="login-btn" onClick={handleLogin}>
         {" "}
-        Log in
+        Login
       </button>
     </div>
   );
