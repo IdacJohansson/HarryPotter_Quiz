@@ -1,35 +1,37 @@
-import React from 'react'
+import React from "react";
 import { useState } from "react";
 
 function LoginForm() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState({ username: "", password: "" });
-  
-    function checkLogin(event) {
-      event.preventDefault();
-  
-      let isValid = true;
-      const errorMsg = { username: "", password: "" };
-  
-      const storedUsername = localStorage.getItem("username");
-      const storedPassword = localStorage.getItem("password");
-  
-      if (username !== storedUsername || password !== storedPassword) {
-        errorMsg.username = "Username or password is incorrect.";
-        errorMsg.password = "Username or password is incorrect.";
-        isValid = false;
-      }
-  
-      setErrors(errorMsg);
-  
-      if (isValid) {
-        window.location.href = "/game";
-      } 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({ username: "", password: "" });
+
+  function checkLogin(event) {
+    event.preventDefault();
+
+    let isValid = true;
+    const errorMsg = { username: "", password: "" };
+
+    const storedUsername = localStorage.getItem("username");
+    const storedPassword = localStorage.getItem("password");
+
+    if (username !== storedUsername || password !== storedPassword) {
+      errorMsg.username = "Username or password is incorrect.";
+      errorMsg.password = "Username or password is incorrect.";
+      isValid = false;
     }
+
+    setErrors(errorMsg);
+
+    if (isValid) {
+      window.location.href = "/game";
+    }
+  }
   return (
     <div>
-      <h1>Login</h1>
+      <div className="heading-container">
+        <h1 className="form-heading">Login</h1>
+      </div>
       <form onSubmit={checkLogin}>
         <label>
           Username:
@@ -39,7 +41,7 @@ function LoginForm() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <span style={{ color: "red" }}>{errors.username}</span>
+        <span style={{ color: "black" }}>{errors.username}</span>
         <br />
         <label>
           Password:
@@ -49,12 +51,14 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <span style={{ color: "red" }}>{errors.password}</span>
+        <span style={{ color: "black" }}>{errors.password}</span>
         <br />
-        <button type="submit">Login</button>
+        <button className="submit-btn" type="submit">
+          Login
+        </button>
       </form>
     </div>
-  )
+  );
 }
 
-export default LoginForm
+export default LoginForm;
