@@ -1,16 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function CreateAccountForm() {
-  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ username: "", password: "" });
 
-  const handleNavigateToHome = () => {
-    navigate("/");
-  };
 
   function saveToLocalStorage(event) {
     event.preventDefault();
@@ -43,7 +38,9 @@ function CreateAccountForm() {
   }
   return (
     <div>
-      <h1>Create Account</h1>
+      <div className="heading-container">
+        <h1 className="form-heading">Create Account</h1>
+      </div>
       <form onSubmit={saveToLocalStorage}>
         <label>
           Username:
@@ -53,7 +50,7 @@ function CreateAccountForm() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <span style={{ color: "red" }}>{errors.username}</span>
+        <span style={{ color: "black" }}>{errors.username}</span>
         <br />
         <label>
           Password:
@@ -63,12 +60,12 @@ function CreateAccountForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <span style={{ color: "red" }}>{errors.password}</span>
+        <span style={{ color: "black" }}>{errors.password}</span>
         <br />
-        <button type="submit">Create Account</button>
+        <button className="submit-btn" type="submit">
+          Create Account
+        </button>
       </form>
-
-      <button onClick={handleNavigateToHome}>Go back</button>
     </div>
   );
 }

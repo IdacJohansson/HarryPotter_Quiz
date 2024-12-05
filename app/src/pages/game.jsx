@@ -1,16 +1,18 @@
 import React from "react";
-import Box from "../components/Box";
 import StartButton from "../components/StartButton";
 import Navigation from "../components/Navigation";
+import PaperBox from "../components/PaperBox";
 
 export default function Game() {
   return (
     <>
       <Navigation />
       <main>
-        <Box title={"Put Your Skills to the Test"}>
-          <StartButton />
-        </Box>
+        <div className="game-container">
+          <PaperBox title={"Time To Put Your Character Skills to the Test"}>
+            <StartButton />
+          </PaperBox>
+        </div>
       </main>
     </>
   );
