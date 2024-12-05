@@ -10,7 +10,6 @@ import Game from "../src/pages/game";
 import Quiz from "./pages/quiz";
 import CreateAccount from "./pages/createAccount";
 
-
 function App() {
   return (
     <AuthProvider>
@@ -19,7 +18,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/createAccount" element={<CreateAccount />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/quiz" element={<Quiz />} />
+          <Route
+            path="/quiz"
+            element={
+              <ProtectedRoute>
+                <Quiz />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/game"
             element={
