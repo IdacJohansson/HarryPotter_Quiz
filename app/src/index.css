@@ -15,7 +15,7 @@ body {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex; 
   align-items: center;
   margin-top: 40px;
 }
@@ -154,6 +154,7 @@ nav {
   height: 600px;
   display: flex;
   flex-direction: column;
+
 }
 
 .paper-img {
@@ -265,12 +266,11 @@ nav {
 /*timer*/
 
 .timer {
-  font-size: 24px;
+  font-size: 14px;
   color: white; 
-  margin: 20px 0; 
   text-align: center; 
   background-color: rgba(0, 0, 0, 0.5); 
-  padding: 10px; 
   border-radius: 8px; 
   font-family: "Cinzel Decorative", serif; 
 }
+

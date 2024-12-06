@@ -98,43 +98,43 @@ function quiz() {
   }, [timer, navigate]);
 
   return (
-    <>
-      <main>
-        <Navigation />
-        <div>
-          {currentCharacter ? (
-            <PaperBox title={`Question ${questionScore + 1}`}>
-              <img
-                className="character-img"
-                src={currentCharacter.image}
-                alt={currentCharacter.name}
-                style={{ width: "200px", height: "300px", objectFit: "cover" }}
-              />
-              <div>
-                {options.map((option) => (
-                  <button
-                    className="option-btn"
-                    key={option}
-                    onClick={() => handleAnswer(option)}
-                    style={{
-                      background: buttonColors[option] || "#3d3a33",
-                    }}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-              <div className="timer">
-                Time remaining: {timer} seconds
-              </div> {/* Timer now inside PaperBox */}
-            </PaperBox>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-      </main>
-    </>
-  );
+  <>
+    <main>
+      <Navigation />
+      <div>
+        {currentCharacter ? (
+          <PaperBox title={`Question ${questionScore + 1}`}>
+            <img
+              className="character-img"
+              src={currentCharacter.image}
+              alt={currentCharacter.name}
+              style={{ width: "200px", height: "300px", objectFit: "cover" }}
+            />
+            <div>
+              {options.map((option) => (
+                <button
+                  className="option-btn"
+                  key={option}
+                  onClick={() => handleAnswer(option)}
+                  style={{
+                    background: buttonColors[option] || "#3d3a33",
+                  }}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            <div className="timer">
+              Time remaining: {timer} seconds
+            </div> {/* Timer now inside PaperBox */}
+          </PaperBox>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+    </main>
+  </>
+);
 }
 
 export default quiz;
