@@ -32,7 +32,7 @@ function quiz() {
 
     setCurrentCharacter(randomCharacter);
     setOptions(randomOptions);
-    setTimer(5); // Reset timer
+    setTimer(7); // Reset timer
   };
 
   const getRandomNames = (characters, correctName) => {
