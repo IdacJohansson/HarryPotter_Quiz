@@ -12,7 +12,7 @@ function quiz() {
   const [options, setOptions] = useState([]);
   const [questionScore, setQuestionScore] = useState(0);
   const [buttonColors, setButtonColors] = useState({});
-  const [timer, setTimer] = useState(5); // Timer state
+  const [timer, setTimer] = useState(5); 
 
   useEffect(() => {
     Axios.get("https://hp-api.onrender.com/api/characters").then((res) => {
@@ -32,7 +32,7 @@ function quiz() {
 
     setCurrentCharacter(randomCharacter);
     setOptions(randomOptions);
-    setTimer(7); // Reset timer
+    setTimer(7); 
   };
 
   const getRandomNames = (characters, correctName) => {
@@ -83,9 +83,8 @@ function quiz() {
     };
   }, []);
 
-  // Countdown timer effect
   useEffect(() => {
-    console.log("Timer updated: ", timer); // Check timer updates
+    console.log("Timer updated: ", timer); 
     if (timer > 0) {
       const timerId = setInterval(() => {
         setTimer((prev) => prev - 1);
@@ -101,9 +100,15 @@ function quiz() {
   <>
     <main>
       <Navigation />
+
+      
+
       <div>
         {currentCharacter ? (
           <PaperBox title={`Question ${questionScore + 1}`}>
+            <div className="score-container">
+              <p>Score: {questionScore}</p>
+            </div>
             <img
               className="character-img"
               src={currentCharacter.image}
@@ -126,7 +131,7 @@ function quiz() {
             </div>
             <div className="timer">
               Time remaining: {timer} seconds
-            </div> {/* Timer now inside PaperBox */}
+            </div> 
           </PaperBox>
         ) : (
           <p>Loading...</p>
