@@ -344,16 +344,22 @@ nav {
     flex-direction: column;
     gap: 10px;
   }
-
+@media (max-width: 480px) {
   .character-img {
-    max-width: 100%; 
-    margin: 0 auto;
+width: 200px;
+height: 100px;
   }
+}
+ .character-img {
+  max-width: 100%; 
+  margin: 0 auto;
+}
 
+@media (max-width: 480px){
   .game-container, .paper-box-container {
     padding: 10px;
   }
-
+}
   .option-btn {
     width: 100%;
     margin: 5px 0;
