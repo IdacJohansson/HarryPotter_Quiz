@@ -12,6 +12,7 @@ function quiz() {
   const [options, setOptions] = useState([]);
   const [questionScore, setQuestionScore] = useState(0);
   const [buttonColors, setButtonColors] = useState({});
+  const [timer, setTimer] = useState(5); 
 
   useEffect(() => {
     Axios.get("https://hp-api.onrender.com/api/characters").then((res) => {
@@ -31,6 +32,7 @@ function quiz() {
 
     setCurrentCharacter(randomCharacter);
     setOptions(randomOptions);
+    setTimer(7); 
   };
 
   const getRandomNames = (characters, correctName) => {
@@ -81,41 +83,63 @@ function quiz() {
     };
   }, []);
 
+  useEffect(() => {
+    console.log("Timer updated: ", timer); 
+    if (timer > 0) {
+      const timerId = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(timerId);
+    } else {
+      alert("Time's up! Game Over");
+      navigate("/game");
+    }
+  }, [timer, navigate]);
+
   return (
-    <>
-      <main>
-        <Navigation />
-        <div>
-          {currentCharacter ? (
-            <PaperBox title={`Question ${questionScore + 1}`}>
-              <img
-                className="character-img"
-                src={currentCharacter.image}
-                alt={currentCharacter.name}
-                style={{ width: "200px", height: "300px", objectFit: "cover" }}
-              />
-              <div>
-                {options.map((option) => (
-                  <button
-                    className="option-btn"
-                    key={option}
-                    onClick={() => handleAnswer(option)}
-                    style={{
-                      background: buttonColors[option] || "#3d3a33",
-                    }}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </PaperBox>
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
-      </main>
-    </>
-  );
+  <>
+    <main>
+      <Navigation />
+
+      
+
+      <div>
+        {currentCharacter ? (
+          <PaperBox title={`Question ${questionScore + 1}`}>
+            <div className="score-container">
+              <p>Score: {questionScore}</p>
+            </div>
+            <img
+              className="character-img"
+              src={currentCharacter.image}
+              alt={currentCharacter.name}
+              style={{ width: "200px", height: "300px", objectFit: "cover" }}
+            />
+            <div>
+              {options.map((option) => (
+                <button
+                  className="option-btn"
+                  key={option}
+                  onClick={() => handleAnswer(option)}
+                  style={{
+                    background: buttonColors[option] || "#3d3a33",
+                  }}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            <div className="timer">
+              Time remaining: {timer} seconds
+            </div> 
+          </PaperBox>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+    </main>
+  </>
+);
 }
 
 export default quiz;
