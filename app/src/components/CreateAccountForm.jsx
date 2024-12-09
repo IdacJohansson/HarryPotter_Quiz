@@ -6,7 +6,6 @@ function CreateAccountForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ username: "", password: "" });
 
-
   function saveToLocalStorage(event) {
     event.preventDefault();
 
@@ -62,6 +61,7 @@ function CreateAccountForm() {
         </label>
         <span style={{ color: "black" }}>{errors.password}</span>
         <br />
+
         <button className="submit-btn" type="submit">
           Create Account
         </button>

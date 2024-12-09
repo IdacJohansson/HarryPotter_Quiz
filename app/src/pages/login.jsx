@@ -18,19 +18,16 @@ export default function login() {
         <div className="container">
           <PaperBox>
             <div className="form-container">
-            <div className="go-back-btn">
-              <a href="#" onClick={handleNavigate}><i className="go-back-icon bi bi-arrow-left" ></i></a>
-            </div>
+              <div className="go-back-btn">
+                <a href="#" onClick={handleNavigate}>
+                  <i className="go-back-icon bi bi-arrow-left"></i>
+                </a>
+              </div>
               <LoginForm />
               <img
+                className="hogwarts-logo"
                 src={HogwartsLogo}
                 alt="hogwarts-logo"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  opacity: 0.8,
-                  objectFit: "cover",
-                }}
               />
             </div>
           </PaperBox>

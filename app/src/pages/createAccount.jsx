@@ -13,14 +13,9 @@ export default function createAccount() {
             <div className="form-container">
               <CreateAccountForm />
               <img
+                className="hogwarts-logo"
                 src={HogwartsLogo}
                 alt="hogwarts-logo"
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  opacity: 0.8,
-                  objectFit: "cover",
-                }}
               />
             </div>
           </PaperBox>
