@@ -8,7 +8,9 @@ function StartButton() {
   };
   return (
     <div>
-      <button className="start-btn" onClick={navigateToQuiz}>Start Quiz</button>
+      <button className="start-btn" onClick={navigateToQuiz}>
+        Start Quiz
+      </button>
     </div>
   );
 }
