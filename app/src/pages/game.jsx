@@ -10,7 +10,12 @@ export default function Game() {
       <main>
         <Navigation />
         <div className="game-container">
-          <PaperBox title={"Time To Put Your Character Skills to the Test..."}>
+          <PaperBox >
+            <div className="typing-text">
+              <p>Welcome to the Harry Potter Quiz!</p>
+              <p>Now is the time to put you character-</p>
+              <p>skills to the test.. Imperio!</p>
+            </div>
             <StartButton />
           </PaperBox>
         </div>

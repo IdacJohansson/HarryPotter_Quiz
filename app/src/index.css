@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  background-image: url(/Users/ida/VS-codeProjects/Group_project_game/app/src/assets/hp.jpg);
+  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/hogwartsSchool.png);
   background-size: cover;
 }
 
@@ -232,6 +232,71 @@ nav {
   font-family: "Harry Potter", sans-serif;
   font-size: 60px;
   color: #fff;
+}
+
+.typing-text p {
+  font-size: 35px;
+  font-family: "Harry Potter", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: 0 0 10px #ffcc00, 0 0 10px #ff9900, 0 0 30px #ef8945;
+  display: flex; /* Gör att p-elementet beter sig som inline för att centrera */
+}
+
+.typing-text p:nth-child(1) {
+  width: 600px;
+  animation: type 2s steps(20, end);
+  animation-fill-mode: forwards;
+}
+
+.typing-text p:nth-child(2) {
+  width: 600px;
+  opacity: 0;
+  animation: type2 2s steps(20, end);
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.typing-text p:nth-child(3) {
+  width: 600px;
+  opacity: 0;
+  animation: type3 2s steps(20, end), .5s step-end infinite alternate;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*Quiz-page*/
