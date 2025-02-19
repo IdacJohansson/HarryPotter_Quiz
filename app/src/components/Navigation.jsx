@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import BackgroundPlayer from "./BackgroundPlayer";
 
 export default function Navigation() {
   const navigate = useNavigate();
@@ -22,9 +23,15 @@ export default function Navigation() {
           New Game
         </NavLink>
       )}
+      {isLoggedIn && (
+        <NavLink className="link-text" to="/game">
+          High Score
+        </NavLink>
+      )}
       <NavLink className="link-text" onClick={handleLogout}>
         Logout
       </NavLink>
+      {/* <BackgroundPlayer /> */}
     </nav>
   );
 }

@@ -56,8 +56,7 @@ main {
 }
 
 .login-btn:hover,
-.submit-btn:hover,
-.start-btn:hover {
+.submit-btn:hover {
   transform: scale(1.05);
   background-color: #3d3a33;
 }
@@ -140,9 +139,9 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   font-family: "Harry Potter", sans-serif;
-  font-size: 60px;
+  font-size: 50px;
 }
 
 .link-text {
@@ -152,7 +151,8 @@ nav {
 }
 
 .link-text:hover {
-  color: #4a4236;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
 }
 
 /*PaperBox-component*/
@@ -210,16 +210,29 @@ nav {
 }
 
 .start-btn {
-  width: 300px;
-  height: 100px;
+  position: relative;
+  font-size: 45px;
   font-family: "Harry Potter", sans-serif;
-  font-size: 50px;
+  color: #000000;
   cursor: pointer;
-  box-shadow: 5px 5px 8px #888888;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  border: none;
-  padding-top: 20px;
-  margin-top: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s, text-shadow 0.3s;
+}
+
+.start-btn:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+}
+
+.lightning-icon {
+  margin-left: 5px;
+}
+
+.golden-snitch-img {
+  width: 200px;
+  height: 200px;
+  opacity: 0.8;
 }
 
 .image-container {
@@ -234,13 +247,17 @@ nav {
   color: #fff;
 }
 
+/*Typing animation game-page*/
+
 .typing-text p {
-  font-size: 35px;
-  font-family: "Harry Potter", sans-serif;
+  font-size: 28px;
+  font-family: "Cinzel Decorative", serif;
   white-space: nowrap;
   overflow: hidden;
-  text-shadow: 0 0 10px #ffcc00, 0 0 10px #ff9900, 0 0 30px #ef8945;
-  display: flex; /* Gör att p-elementet beter sig som inline för att centrera */
+  text-shadow: 0 0 10px #e7d386, 0 0 10px #ff9900, 0 0 30px #ef8945;
+  display: flex;
+  margin-left: 50px;
+  margin-top: 20px;
 }
 
 .typing-text p:nth-child(1) {
@@ -260,7 +277,7 @@ nav {
 .typing-text p:nth-child(3) {
   width: 600px;
   opacity: 0;
-  animation: type3 2s steps(20, end), .5s step-end infinite alternate;
+  animation: type3 2s steps(20, end), 0.5s step-end infinite alternate;
   animation-delay: 4s;
   animation-fill-mode: forwards;
 }
@@ -412,8 +429,7 @@ nav {
     gap: 20px;
   }
 
-  .login-btn,
-  .start-btn {
+  .login-btn {
     min-width: 200px;
     height: 80px;
     font-size: 30px;
@@ -449,7 +465,7 @@ nav {
     font-size: 10px;
     padding: 5px;
   }
-
+  /*Fixa*/
   .start-btn {
     font-size: 20px;
     width: 200px;
@@ -566,7 +582,7 @@ nav {
     width: 200px;
     height: 60px;
   }
-
+  /*Fixa*/
   .start-btn {
     font-size: 20px;
     max-width: 150px;
