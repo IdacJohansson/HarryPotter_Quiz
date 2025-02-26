@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import SubmitButton from "./SubmitButton";
+
+
 
 function LoginForm() {
   const [username, setUsername] = useState("");
@@ -53,9 +56,7 @@ function LoginForm() {
         </label>
         <span style={{ color: "black" }}>{errors.password}</span>
         <br />
-        <button className="submit-btn" type="submit">
-          Login
-        </button>
+        <SubmitButton />
       </form>
     </div>
   );

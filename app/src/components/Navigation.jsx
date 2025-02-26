@@ -13,7 +13,6 @@ export default function Navigation() {
     localStorage.removeItem("username");
     localStorage.removeItem("password");
     setIsLoggedIn(false);
-    navigate("/");
   };
 
   return (
@@ -29,7 +28,7 @@ export default function Navigation() {
         </NavLink>
       )}
       <NavLink className="link-text" onClick={handleLogout}>
-        Logout
+        Logout {/*Fel länk????*/}
       </NavLink>
       {/* <BackgroundPlayer /> */}
     </nav>
