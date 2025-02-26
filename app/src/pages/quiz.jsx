@@ -4,6 +4,7 @@ import Axios from "axios";
 
 import PaperBox from "../components/PaperBox";
 import Navigation from "../components/Navigation";
+import ModalPopUp from "../components/ModalPopUp";
 
 function quiz() {
   const navigate = useNavigate();
@@ -13,6 +14,8 @@ function quiz() {
   const [questionScore, setQuestionScore] = useState(0);
   const [buttonColors, setButtonColors] = useState({});
   const [timer, setTimer] = useState(5);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   useEffect(() => {
     Axios.get("https://hp-api.onrender.com/api/characters").then((res) => {
@@ -64,12 +67,22 @@ function quiz() {
     } else {
       newButtonColors[answer] = "red";
       setButtonColors(newButtonColors);
+      setTimer(() =>{
+        return 0;
+      })
       setTimeout(() => {
-        alert("Game Over");
-        navigate("/game");
+        setModalMessage("Game Over!");
+        setIsModalOpen(true);
+        
+        
       }, 500);
     }
   };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    navigate("/game");
+  }
 
   useEffect(() => {
     const handleBackButton = (event) => {
@@ -84,17 +97,16 @@ function quiz() {
   }, []);
 
   useEffect(() => {
-    console.log("Timer updated: ", timer);
     if (timer > 0) {
       const timerId = setInterval(() => {
         setTimer((prev) => prev - 1);
       }, 1000);
       return () => clearInterval(timerId);
     } else {
-      alert("Time's up! Game Over");
-      navigate("/game");
+      setModalMessage("Game Over!");
+        setIsModalOpen(true);
     }
-  }, [timer, navigate]);
+  }, [timer]);
 
   return (
     <>
@@ -133,6 +145,7 @@ function quiz() {
           ) : (
             <p>Loading...</p>
           )}
+          <ModalPopUp isOpen={isModalOpen} onClose={handleCloseModal} message={modalMessage} />
         </div>
       </main>
     </>
