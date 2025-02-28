@@ -1,13 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+
+import HighScoreModal from "./HighScoreModal";
 import BackgroundPlayer from "./BackgroundPlayer";
 
 export default function Navigation() {
-  const navigate = useNavigate();
   const { setIsLoggedIn } = useContext(AuthContext);
   const { isLoggedIn } = useContext(AuthContext);
+  const [isHighScoreOpen, setIsHighScoreOpen] = useState(false);
+
+  const openModal = () => {
+    setIsHighScoreOpen(true);
+  };
 
   const handleLogout = () => {
     localStorage.removeItem("username");
@@ -23,12 +28,19 @@ export default function Navigation() {
         </NavLink>
       )}
       {isLoggedIn && (
-        <NavLink className="link-text" to="/game">
+        <button className="link-text" onClick={openModal}>
           High Score
-        </NavLink>
+        </button>
       )}
+      {isHighScoreOpen && (
+        <HighScoreModal
+          onClose={() => setIsHighScoreOpen(false)}
+          isOpen={isHighScoreOpen}
+        />
+      )}
+
       <NavLink className="link-text" onClick={handleLogout}>
-        Logout {/*Fel länk????*/}
+        Logout
       </NavLink>
       {/* <BackgroundPlayer /> */}
     </nav>
