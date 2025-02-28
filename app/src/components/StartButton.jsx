@@ -4,7 +4,7 @@ function StartButton() {
   return (
     <div>
       <Link className="start-btn" to={"/quiz"}>
-      Start Quiz 
+        Start Quiz
       </Link>
     </div>
   );

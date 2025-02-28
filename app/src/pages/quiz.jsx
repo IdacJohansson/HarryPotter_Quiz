@@ -4,7 +4,8 @@ import Axios from "axios";
 
 import PaperBox from "../components/PaperBox";
 import Navigation from "../components/Navigation";
-import ModalPopUp from "../components/ModalPopUp";
+import GameOverModal from "../components/GameOverModal";
+import HighScoreModal from "../components/HighScoreModal";
 
 function quiz() {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ function quiz() {
   const [timer, setTimer] = useState(5);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [isHighScoreOpen, setIsHighScoreOpen] = useState(false);
 
   useEffect(() => {
     Axios.get("https://hp-api.onrender.com/api/characters").then((res) => {
@@ -67,22 +69,37 @@ function quiz() {
     } else {
       newButtonColors[answer] = "red";
       setButtonColors(newButtonColors);
-      setTimer(() =>{
+      setTimer(() => {
         return 0;
-      })
+      });
       setTimeout(() => {
+        const scores = JSON.parse(localStorage.getItem("highScores")) || [];
+        const user = localStorage.getItem("username");
+        const newScore = { name: user, score: questionScore };
+        scores.push(newScore);
+        scores.sort((a, b) => b.score - a.score);
+        localStorage.setItem("highScores", JSON.stringify(scores.slice(0, 5)));
+
         setModalMessage("Game Over!");
         setIsModalOpen(true);
-        
-        
       }, 500);
     }
   };
 
-  const handleCloseModal = () => {
+  const handleCloseGameOverModal = () => {
     setIsModalOpen(false);
     navigate("/game");
-  }
+  };
+
+  const handleCloseHighScoreModal = () => {
+    setIsHighScoreOpen(false);
+    navigate("/game");
+  };
+
+  const handleShowHighScore = () => {
+    setIsModalOpen(false);
+    setIsHighScoreOpen(true);
+  };
 
   useEffect(() => {
     const handleBackButton = (event) => {
@@ -104,7 +121,7 @@ function quiz() {
       return () => clearInterval(timerId);
     } else {
       setModalMessage("Game Over!");
-        setIsModalOpen(true);
+      setIsModalOpen(true);
     }
   }, [timer]);
 
@@ -145,7 +162,16 @@ function quiz() {
           ) : (
             <p>Loading...</p>
           )}
-          <ModalPopUp isOpen={isModalOpen} onClose={handleCloseModal} message={modalMessage} />
+          <GameOverModal
+            isOpen={isModalOpen}
+            onClose={handleCloseGameOverModal}
+            message={modalMessage}
+            onShowHighScore={handleShowHighScore}
+          />
+          <HighScoreModal
+            isOpen={isHighScoreOpen}
+            onClose={handleCloseHighScoreModal}
+          />
         </div>
       </main>
     </>
