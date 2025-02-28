@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/hogwartsSchool.png);
+  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/hogwartsBackground.png);
   background-size: cover;
 }
 
@@ -17,7 +17,6 @@ main {
   flex-direction: column;
   justify-content: flex;
   align-items: center;
-  margin-top: 40px;
 }
 
 /*GENERAL*/
@@ -193,17 +192,16 @@ nav {
 
 .paper-box-container {
   width: 1000px;
-  height: 650px;
+  height: 750px;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.paper-img {
+.content-container {
   width: 100%;
   height: 100%;
-  opacity: 0.9;
-  object-fit: cover;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .content {
@@ -394,6 +392,7 @@ nav {
 /*Game-page*/
 
 .game-container {
+  /**/
   display: flex;
   flex-direction: column;
   justify-content: center;
