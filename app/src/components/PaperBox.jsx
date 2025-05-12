@@ -1,14 +1,12 @@
 import React from "react";
 
-
-function PaperBox({ children }) {
+function PaperBox({ children, variant }) {
   return (
     <div className="paper-box-container">
       <div className="content-container">
-      <div className="content">
-        <h1 className="game-heading"></h1>
-        {children}
-      </div>
+        <div className={`content ${variant}`}>
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -129,15 +129,15 @@ function quiz() {
     <>
       <main>
         <Navigation />
-        <div>
-          <div className="time-score-container">
-            <div className="score">
-              <p>Score: {questionScore}</p>
-            </div>
-            <div className="timer"> {timer} seconds</div>
-          </div>
+        <div className="quiz-container">
           {currentCharacter ? (
-            <PaperBox title={`Question ${questionScore + 1}`}>
+            <PaperBox variant="quiz">
+              <div className="time-score-container">
+                <div className="score">
+                  <p>Score: {questionScore}</p>
+                </div>
+                <div className="timer"> seconds: {timer}</div>
+              </div>
               <img
                 className="character-img"
                 src={currentCharacter.image}

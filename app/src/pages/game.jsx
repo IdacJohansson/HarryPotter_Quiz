@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -6,7 +5,7 @@ import Navigation from "../components/Navigation";
 import StartButton from "../components/StartButton";
 import PaperBox from "../components/PaperBox";
 
-import wandAnimation from '../assets/animation.json';
+import wandAnimation from "../assets/animation.json";
 import Lottie from "lottie-react";
 
 export default function Game() {
@@ -14,9 +13,9 @@ export default function Game() {
   const navigate = useNavigate();
 
   const handelStartQuiz = () => {
-    setLoading(true); 
+    setLoading(true);
     setTimeout(() => {
-      navigate("/quiz"); 
+      navigate("/quiz");
     }, 4000);
   };
 
@@ -25,15 +24,23 @@ export default function Game() {
       <main>
         <Navigation />
         <div className="game-container">
-            <PaperBox>
-              <div className="typing-text">
-                <p>Welcome to the Harry Potter Quiz!</p>
-                <p>Now it's time to put your character-</p>
-                <p>skills to the test.. Imperio!</p>
-              </div>
+          <PaperBox variant="game">
+            <div className="typing-text">
+              <p>Welcome to the Harry Potter character Quiz!</p>
+              <p>The ultimate quiz of characters from Harry Potter.</p>
+              <p>As Dumbledore once said,</p>
+              <p>“It is our choices that show what we truly are,</p>
+              <p>far more than our abilities.” Choose wisely!</p>
+            </div>
+            <div className="start-btn-container">
               <StartButton onClick={handelStartQuiz} />
-              <Lottie className="wandAnimation" animationData={wandAnimation} loop={true}></Lottie>
-            </PaperBox>
+              <Lottie
+                className="wandAnimation"
+                animationData={wandAnimation}
+                loop={true}
+              ></Lottie>
+            </div>
+          </PaperBox>
         </div>
       </main>
     </>

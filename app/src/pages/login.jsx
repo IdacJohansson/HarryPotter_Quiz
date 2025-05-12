@@ -16,13 +16,13 @@ export default function login() {
     <>
       <main>
         <div className="container">
-          <PaperBox>
+          <PaperBox variant="login">
+            <div className="go-back-btn">
+              <a href="#" onClick={handleNavigate}>
+                <i className="go-back-icon bi bi-arrow-left"></i>
+              </a>
+            </div>
             <div className="form-container">
-              <div className="go-back-btn">
-                <a href="#" onClick={handleNavigate}>
-                  <i className="go-back-icon bi bi-arrow-left"></i>
-                </a>
-              </div>
               <LoginForm />
               <img
                 className="hogwarts-logo"

@@ -10,7 +10,7 @@ import SnitchImage from "../assets/golden-snitch.png";
 function home() {
   return (
     <div className="container">
-      <PaperBox>
+      <PaperBox variant="home">
         <div className="btn-container">
           <LoginButton />
           <div className="snitch-text-container">
