@@ -9,8 +9,10 @@ function GameOverModal({ isOpen, onClose, message, onShowHighScore }) {
   return (
     <div className="game-over-modal-container">
       <div className="game-over-modal-content">
-        <img className="game-over-img" src={alrauneImg} alt="" />
-        <p className="game-over-modal-msg">{message}</p>
+        <div className="game-over-image-container">
+          <img className="game-over-img" src={alrauneImg} alt="" />
+          <p className="game-over-modal-msg">{message}</p>
+        </div>
         <div className="game-over-modal-btn-container">
           <button className="high-score-modal-btn" onClick={onShowHighScore}>
             High Score

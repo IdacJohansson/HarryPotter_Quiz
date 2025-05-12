@@ -8,8 +8,9 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/hogwartsBackground.png);
+  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/hogwartsSchool.png);
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 main {
@@ -76,7 +77,8 @@ main {
   overflow: hidden;
   text-decoration: none;
   transition: transform 0.3s, text-shadow 0.3s;
-  text-shadow: 0 0 10px #e1ddcb, 0 0 10px #b8812f, 0 0 30px #ea9b65;
+  text-shadow: 0 0 10px #d4c68a, 0 0 10px #b8812f, 0 0 30px #ea9b65;
+  margin-left: 30px;
 }
 
 .start-btn:hover,
@@ -97,9 +99,9 @@ main {
   font-family: "Cinzel Decorative", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 15px;
+  font-size: 13px;
   box-shadow: 5px 5px 8px #888888;
-  width: 250px;
+  width: 230px;
 }
 
 .option-btn-container {
@@ -112,10 +114,6 @@ main {
 /*Forms*/
 
 .form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 700px;
   height: 500px;
 }
@@ -159,8 +157,9 @@ span {
 }
 
 .hogwarts-logo {
-  width: 150px;
-  height: 150px;
+  margin-top: 20px;
+  width: 120px;
+  height: 120px;
   opacity: 0.8;
 }
 
@@ -191,8 +190,8 @@ nav {
 /*PaperBox-component*/
 
 .paper-box-container {
-  width: 1000px;
-  height: 750px;
+  width: 950px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -201,21 +200,55 @@ nav {
 .content-container {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/paperroll.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
 }
 
-.content {
+.content.quiz {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+}
+
+.content.home,
+.content.game {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 45%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
   gap: 40px;
+}
+
+.content.login,
+.content.createAccaount,
+.content.home {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+}
+
+.game-container,
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 600px;
 }
 
 /*Game-Over-Modal & High-Score-Modal*/
@@ -228,33 +261,35 @@ nav {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 100;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .game-over-modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 300px;
-  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/paper.png);
+  width: 700px;
+  height: 500px;
+  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/paperroll.png);
   background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   padding: 20px;
+}
+
+.game-over-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 250px;
 }
 
 .game-over-modal-btn-container {
   display: flex;
-  flex-direction: row;
-  position: absolute;
   gap: 20px;
-  bottom: 20px;
 }
 
 .game-over-modal-btn {
@@ -294,9 +329,9 @@ nav {
 
 .game-over-img {
   position: absolute;
-  top: 20px;
-  width: 120px;
-  height: 200px;
+  display: flex;
+  width: 150px;
+  height: 250px;
 }
 
 .high-score-modal-container {
@@ -321,9 +356,9 @@ nav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 550px;
-  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/book.png);
+  width: 700px;
+  height: 500px;
+  background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/paperroll.png);
   background-size: cover;
   gap: 10px;
   padding: 20px;
@@ -331,7 +366,7 @@ nav {
 
 .high-score-heading {
   font-family: "Harry Potter", sans-serif;
-  font-size: 25px;
+  font-size: 30px;
   color: #fff;
   text-shadow: 2px 2px 8px #37404e;
   margin: 0;
@@ -339,6 +374,7 @@ nav {
 
 .high-score-close-modal-btn {
   margin-bottom: 0px;
+  margin-top: 10px;
   padding-top: 8px;
   width: 100px;
   height: 40px;
@@ -357,7 +393,7 @@ nav {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 7px;
   align-items: center;
   padding: 0;
   margin: 0;
@@ -391,36 +427,20 @@ nav {
 
 /*Game-page*/
 
-.game-container {
-  /**/
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 900px;
-  height: 600px;
-}
-
-.game-heading {
-  font-family: "Cinzel Decorative", serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 30px;
-  text-align: center;
-  margin-bottom: 0px;
-  max-width: 400px;
-  text-shadow: 2px 2px 8px #37404e;
-}
-
 .lightning-icon {
   margin-left: 5px;
+}
+
+.start-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wandAnimation {
   width: 150px;
   height: 200px;
   position: absolute;
-  top: 260px;
   left: 60%;
 }
 
@@ -439,14 +459,17 @@ nav {
 /*Typing animation game-page*/
 
 .typing-text p {
-  font-size: 28px;
+  font-size: 20px;
   font-family: "Cinzel Decorative", serif;
   white-space: nowrap;
   overflow: hidden;
-  text-shadow: 0 0 10px #f1e1a3, 0 0 10px #d4f0f0, 0 0 30px #e9e2dcd6;
-  display: flex;
-  margin-left: 50px;
   margin-top: 20px;
+  margin-left: 70px;
+  margin-bottom: 0px;
+  top: 20px;
+  display: inline-block;
+  max-width: 600px;
+  text-shadow: 0 0 10px #cbc29a, 0 0 10px #545858, 0 0 30px #e9e2dcd6;
 }
 
 .typing-text p:nth-child(1) {
@@ -466,14 +489,32 @@ nav {
 .typing-text p:nth-child(3) {
   width: 600px;
   opacity: 0;
-  animation: type3 2s steps(20, end), 0.5s step-end infinite alternate;
+  animation: type3 2s steps(20, end);
   animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+.typing-text p:nth-child(4) {
+  width: 600px;
+  opacity: 0;
+  animation: type4 2s steps(20, end);
+  animation-delay: 6s;
+  animation-fill-mode: forwards;
+}
+
+.typing-text p:nth-child(5) {
+  width: 600px;
+  opacity: 0;
+  animation: type5 2s steps(20, end), 0.5s step-end infinite alternate;
+  animation-delay: 8s;
   animation-fill-mode: forwards;
 }
 
 @keyframes type {
   0% {
     width: 0;
+  }
+  1% {
+    opacity: 1;
   }
   100% {
     border: none;
@@ -505,21 +546,48 @@ nav {
   }
 }
 
+@keyframes type4 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes type5 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /*Quiz-page*/
 
 .character-img {
   border: #242118 solid 1px;
   box-shadow: 4px 4px 6px #37404e;
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 200px;
+  margin: 10px;
 }
 
 /*Login-page*/
 
 .go-back-btn {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 500px;
+  margin-left: 30px;
 }
 
 .go-back-icon {
@@ -538,36 +606,19 @@ nav {
 .time-score-container {
   display: flex;
   flex-direction: row;
-  gap: 20px;
-  position: absolute;
-  z-index: 1;
-  margin-left: 25px;
-  margin-top: 30px;
-}
-
-.timer {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: rgb(215, 212, 49);
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  font-family: "Cinzel Decorative", serif;
-  padding: 6px;
-  width: 80px;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 680px;
+  margin-top: 20px;
 }
 
+.timer,
 .score {
-  text-align: center;
   font-size: 14px;
+  color: #000000;
   font-family: "Cinzel Decorative", serif;
-  color: #fff;
-  padding: 3px;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 80px;
+  width: 90px;
 }
 
 /* Responsive Design */

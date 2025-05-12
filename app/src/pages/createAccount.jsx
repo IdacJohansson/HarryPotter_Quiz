@@ -9,7 +9,7 @@ export default function createAccount() {
     <>
       <main>
         <div className="container">
-          <PaperBox>
+          <PaperBox variant="createAccaount">
             <div className="form-container">
               <CreateAccountForm />
               <img

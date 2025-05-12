@@ -28,9 +28,9 @@ export default function Navigation() {
         </NavLink>
       )}
       {isLoggedIn && (
-        <button className="link-text" onClick={openModal}>
+        <NavLink className="link-text" onClick={openModal}>
           High Score
-        </button>
+        </NavLink>
       )}
       {isHighScoreOpen && (
         <HighScoreModal
@@ -42,7 +42,7 @@ export default function Navigation() {
       <NavLink className="link-text" onClick={handleLogout}>
         Logout
       </NavLink>
-      {/* <BackgroundPlayer /> */}
+      <BackgroundPlayer />
     </nav>
   );
 }
