@@ -134,7 +134,7 @@ function quiz() {
             <PaperBox variant="quiz">
               <div className="time-score-container">
                 <div className="score">
-                  <p>Score: {questionScore}</p>
+                  <p> Score: {questionScore}</p>
                 </div>
                 <div className="timer"> seconds: {timer}</div>
               </div>
