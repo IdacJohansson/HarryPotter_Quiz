@@ -1,18 +1,11 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CreateAccountButton() {
-  const navigate = useNavigate();
-
-  const handleCreateAccount = () => {
-    navigate("/createAccount");
-  };
   return (
     <div>
-      <button className="login-btn" onClick={handleCreateAccount}>
-        {" "}
+      <Link className="login-btn" to={"/createAccount"}>
         Create Account
-      </button>
+      </Link>
     </div>
   );
 }

@@ -20,8 +20,6 @@ main {
   align-items: center;
 }
 
-/*GENERAL*/
-
 .container {
   display: flex;
   flex-direction: column;
@@ -29,6 +27,11 @@ main {
   justify-content: center;
   place-content: center;
   height: 100vh;
+}
+
+.span-text {
+  color: #000000;
+  text-shadow: 0 0 10px #e1ddcb, 0 0 10px #b8812f, 0 0 30px #ea9b65;
 }
 
 /*Buttons*/
@@ -39,20 +42,6 @@ main {
   gap: 20px;
 }
 
-.login-btn {
-  width: 320px;
-  height: 100px;
-  font-family: "Harry Potter", sans-serif;
-  font-size: 40px;
-  cursor: pointer;
-  box-shadow: 5px 5px 8px #888888;
-  border: none;
-  padding-top: 20px;
-  background-color: #242118;
-  color: #fff;
-  transition: background-color 0.2s ease, transform 0.3s ease;
-}
-
 .submit-btn {
   width: 200px;
   font-family: "Cinzel Decorative", serif;
@@ -61,14 +50,17 @@ main {
   cursor: pointer;
   box-shadow: 5px 5px 8px #888888;
   border: none;
-  padding-top: 20px;
   background-color: #242118;
   color: #fff;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
 }
 
-.start-btn {
+.start-btn,
+.login-btn {
   position: relative;
   font-size: 45px;
   font-family: "Harry Potter", sans-serif;
@@ -114,7 +106,7 @@ main {
 /*Forms*/
 
 .form-container {
-  width: 700px;
+  width: 900px;
   height: 500px;
 }
 
@@ -123,7 +115,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
 }
 
 .heading-container {
@@ -190,7 +182,7 @@ nav {
 /*PaperBox-component*/
 
 .paper-box-container {
-  width: 950px;
+  width: 900px;
   height: 700px;
   display: flex;
   flex-direction: column;
@@ -201,8 +193,9 @@ nav {
   width: 100%;
   height: 100%;
   background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/paperroll.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center center;
+  background-origin: content-box;
   opacity: 0.9;
 }
 
@@ -235,7 +228,7 @@ nav {
 .content.home {
   position: absolute;
   top: 55%;
-  left: 55%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
@@ -268,7 +261,7 @@ nav {
 }
 
 .game-over-modal-content {
-  width: 700px;
+  width: 800px;
   height: 500px;
   background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/paperroll.png);
   background-size: cover;
@@ -356,7 +349,7 @@ nav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px;
+  width: 800px;
   height: 500px;
   background-image: url(/Users/ida/VS-codeProjects/HarryPotter_Quiz/app/src/assets/paperroll.png);
   background-size: cover;
@@ -405,17 +398,17 @@ nav {
   width: 250px;
   height: 110px;
   margin-bottom: 20px;
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 .letter-R {
   font-size: 30px;
   font-family: "Harry Potter", sans-serif;
-  color: #c19040;
+  color: #e99b1d;
   text-shadow: 2px 2px 8px #37404e;
   position: absolute;
   margin-bottom: 0px;
-  margin-left: 55px;
+  margin-left: 50px;
 }
 
 .snitch-text-container {
@@ -592,7 +585,7 @@ nav {
 
 .go-back-icon {
   font-size: 30px;
-  color: #fff;
+  color: #ebebeb;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -624,118 +617,178 @@ nav {
 /* Responsive Design */
 
 @media screen and (max-width: 768px) {
-  main {
-    margin-top: 20px;
-    padding: 10px;
-  }
-  .paper-box-container,
-  .game-container,
-  .form-container {
-    width: 100%;
-    height: auto;
+  /* content */
+
+  .content.home {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    z-index: 1;
+    text-align: center;
   }
 
-  .option-btn {
-    margin: 5px;
-    font-size: 12px;
+  .content.login {
+    top: 50%;
   }
 
-  nav {
-    font-size: 40px;
-    gap: 20px;
+  .content {
+    gap: 8px;
   }
 
-  .login-btn {
-    min-width: 200px;
-    height: 80px;
-    font-size: 30px;
-    padding: 10px;
-  }
+  /* containers */
 
-  .timer {
-    font-size: 12px;
-    padding: 5px;
+  .paper-box-container {
+    width: 900px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
   .time-score-container {
-    margin-left: 30px;
+    width: 280px;
   }
-}
 
-@media screen and (max-width: 480px) {
+  .option-btn-container {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .heading-container {
+    gap: 0px;
+  }
+  /* navigation */
+
   nav {
     gap: 20px;
   }
+
+  /* text, buttons, img */
 
   .link-text {
     font-size: 20px;
     margin: 10px;
   }
 
-  .content {
-    gap: 8px;
-  }
-  .option-btn {
-    width: 130px;
-    margin: 5px 0;
-    font-size: 10px;
-    padding: 5px;
-  }
-  /*Fixa*/
-  .start-btn {
-    font-size: 20px;
-    width: 200px;
-    height: 50px;
-  }
-
-  .login-btn {
-    font-size: 20px;
-    width: 200px;
-    height: 60px;
-  }
-
-  .submit-btn {
+  .typing-text p {
     font-size: 15px;
-    min-width: 180px;
-    height: 40px;
-  }
-
-  .time-score-container {
-    gap: 10px;
-  }
-
-  .timer {
-    font-size: 8px;
-    padding: 1px;
-    width: 50px;
-  }
-  .score {
-    font-size: 8px;
-    padding: 1px;
-    width: 50px;
+    text-align: center;
+    margin-left: 20px;
   }
 
   .game-heading {
     font-size: 15px;
   }
 
-  .character-img {
-    width: 110px;
-    height: 160px;
-  }
-
   .heading-container {
     margin: 0px;
   }
 
+  .timer {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px;
+    width: 70px;
+  }
+
+  .score {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px;
+    width: 50px;
+  }
+
+  .character-img {
+    width: 120px;
+    height: 200px;
+    margin-bottom: 30px;
+  }
+
+  .start-btn {
+    font-size: 30px;
+    width: 200px;
+    height: 50px;
+  }
+
+  .login-btn {
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    min-width: 180px;
+    height: 40px;
+    text-align: center;
+  }
+
+  .option-btn {
+    width: 130px;
+    margin: 5px 0;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .go-back-btn {
+    display: flex;
+    justify-content: flex-start;
+    width: 320px;
+  }
+
+  /*modal*/
+
+  .game-over-modal-container,
+  .high-score-modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .game-over-modal-content {
+    background-image: none !important;
+  }
+
+  .high-score-modal-content {
+    background-image: none !important;
+    position: absolute;
+  }
+
+  .high-score-ul {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+  }
+
+  .high-score-close-modal-btn,
+  .high-score-modal-btn,
+  .game-over-modal-btn {
+    border: #786565 solid;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+  }
+
+  /* form */
+
   .form-container {
     width: 500px;
     height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50px);
   }
 
-  .form {
-    gap: 10px;
-  }
   .form-heading {
     font-size: 30px;
   }
@@ -759,98 +812,211 @@ nav {
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  main {
-    margin-top: 15px;
-    padding: 8px;
+@media screen and (max-width: 480px) {
+  /* content */
+
+  .content.home {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
   }
 
-  .paper-box-container,
-  .game-container,
-  .form-container {
-    width: 90%;
-    height: auto;
+  .content.game {
+    gap: 20px;
+    top: 50%;
   }
 
-  .character-img {
-    border: solid 2px lightblue;
-    width: 120px;
-    height: 180px;
+  .content.quiz {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .content.login,
+  .content.createAccaount {
+    top: 57%;
+  }
+
+  .content {
+    gap: 8px;
+  }
+
+  /* containers */
+
+  .btn-container {
+    gap: 0px;
+  }
+
+  .paper-box-container {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .time-score-container {
+    width: 245px;
+  }
+
+  .option-btn-container {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .heading-container {
+    display: flex;
+    gap: 0px;
+  }
+
+  /* navigation */
+
+  nav {
+    gap: 20px;
+  }
+
+  /* text, buttons, img */
+
+  span {
+    font-size: 10px;
+  }
+
+  .link-text {
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  .typing-text p {
+    font-size: 10px;
+  }
+
+  .game-heading {
+    font-size: 15px;
   }
 
   .option-btn {
-    margin: 6px;
-    padding: 6px 12px;
-    font-size: 12px;
-    width: 150px;
-  }
-  .game-heading {
-    font-size: 18px;
+    width: 120px;
+    font-size: 10px;
+    padding: 5px;
   }
 
-  nav {
-    font-size: 36px;
-    gap: 15px;
-  }
-
-  .login-btn {
-    font-size: 20px;
-    width: 200px;
-    height: 60px;
-  }
-  /*Fixa*/
   .start-btn {
     font-size: 20px;
-    max-width: 150px;
+    width: 200px;
     height: 50px;
   }
 
   .submit-btn {
-    font-size: 15px;
-    min-width: 180px;
-    height: 40px;
+    font-size: 13px;
+    width: 120px;
+    height: 30px;
   }
 
-  .timer,
+  .go-back-btn {
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .go-back-icon {
+    font-size: 30px;
+    color: #433110;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .timer {
+    font-size: 8px;
+    font-weight: 600;
+    padding: 1px;
+    width: 50px;
+  }
   .score {
-    font-size: 10px;
-    padding: 2px;
-    width: 60px;
+    font-size: 8px;
+    font-weight: 600;
+    padding: 1px;
+    width: 50px;
   }
 
-  .time-score-container {
-    margin-left: 15px;
-    gap: 8px;
+  .character-img {
+    width: 90px;
+    height: 150px;
+    margin: 10px;
   }
 
-  .content {
-    gap: 10px;
+  .hogwarts-logo {
+    display: none;
   }
+
+  /* modal */
+
+  .game-over-modal-container,
+  .high-score-modal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .game-over-modal-content {
+    background-image: none !important;
+  }
+
+  .high-score-modal-content {
+    background-image: none !important;
+    position: absolute;
+  }
+
+  .high-score-ul {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+  }
+
+  .high-score-close-modal-btn,
+  .high-score-modal-btn,
+  .game-over-modal-btn {
+    border: #786565 solid;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+  }
+
+  /* form */
 
   .form-container {
     width: 500px;
     height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+  .form {
+    gap: 0px;
+  }
+
   .form-heading {
-    font-size: 30px;
+    font-size: 25px;
+    margin: 3px;
   }
 
   label {
-    font-size: 15px;
+    font-size: 13px;
+    margin-top: 2px;
   }
 
   input {
-    width: 200px;
-  }
-
-  .submit-btn {
-    font-size: 15px;
-    width: 140px;
-  }
-
-  .hogwarts-logo {
-    width: 100px;
-    height: 100px;
-    opacity: 0.8;
+    width: 180px;
   }
 }

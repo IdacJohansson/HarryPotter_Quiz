@@ -1,5 +1,5 @@
-import React from "react";
 import { useState } from "react";
+import GoBackArrow from "./GoBackArrow";
 
 function CreateAccountForm() {
   const [username, setUsername] = useState("");
@@ -38,6 +38,7 @@ function CreateAccountForm() {
   return (
     <div>
       <div className="heading-container">
+        <GoBackArrow />
         <h1 className="form-heading">Create Account</h1>
       </div>
       <form onSubmit={saveToLocalStorage}>
@@ -49,7 +50,7 @@ function CreateAccountForm() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <span style={{ color: "black" }}>{errors.username}</span>
+        <span className="span-text">{errors.username}</span>
         <br />
         <label>
           Password:
@@ -59,7 +60,7 @@ function CreateAccountForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <span style={{ color: "black" }}>{errors.password}</span>
+        <span className="span-text">{errors.password}</span>
         <br />
 
         <button className="submit-btn" type="submit">
