@@ -1,11 +1,11 @@
-import React from "react";
 import { useState } from "react";
 import SubmitButton from "./SubmitButton";
-
-
+import GoBackArrow from "./GoBackArrow";
 
 function LoginForm() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(() =>
+    localStorage.getItem("username")
+  );
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ username: "", password: "" });
 
@@ -30,9 +30,11 @@ function LoginForm() {
       window.location.href = "/game";
     }
   }
+
   return (
     <div>
       <div className="heading-container">
+        <GoBackArrow />
         <h1 className="form-heading">Login</h1>
       </div>
       <form onSubmit={checkLogin}>
@@ -44,7 +46,7 @@ function LoginForm() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        <span style={{ color: "black" }}>{errors.username}</span>
+        <span className="span-text">{errors.username}</span>
         <br />
         <label>
           Password:
@@ -54,7 +56,7 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <span style={{ color: "black" }}>{errors.password}</span>
+        <span className="span-text">{errors.password}</span>
         <br />
         <SubmitButton />
       </form>

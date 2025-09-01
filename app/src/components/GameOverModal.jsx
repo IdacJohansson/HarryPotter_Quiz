@@ -1,4 +1,3 @@
-import React from "react";
 import alrauneImg from "../assets/alraune.png";
 
 function GameOverModal({ isOpen, onClose, message, onShowHighScore }) {

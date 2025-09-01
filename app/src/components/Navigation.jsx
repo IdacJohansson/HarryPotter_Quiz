@@ -1,14 +1,16 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+
 import { AuthContext } from "../contexts/AuthContext";
+import { MusicContext } from "../contexts/MusicContext";
 
 import HighScoreModal from "./HighScoreModal";
 import BackgroundPlayer from "./BackgroundPlayer";
 
 export default function Navigation() {
-  const { setIsLoggedIn } = useContext(AuthContext);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [isHighScoreOpen, setIsHighScoreOpen] = useState(false);
+  const { isPlaying, setIsPlaying } = useState(MusicContext);
 
   const openModal = () => {
     setIsHighScoreOpen(true);
@@ -17,7 +19,10 @@ export default function Navigation() {
   const handleLogout = () => {
     localStorage.removeItem("username");
     localStorage.removeItem("password");
+    localStorage.removeItem("highScores");
+    localStorage.removeItem("bgMusicPlaying");
     setIsLoggedIn(false);
+    setIsPlaying(false);
   };
 
   return (

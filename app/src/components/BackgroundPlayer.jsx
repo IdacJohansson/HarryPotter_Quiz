@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const audio = new Audio("/school-of-magic.mp3");
 
 export default function BackgroundPlayer() {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(() => {
+    const saved = localStorage.getItem("bgMusicPlaying");
+    return saved === null ? true : JSON.parse(saved);
+  });
 
   useEffect(() => {
     audio.loop = true;
@@ -15,7 +18,7 @@ export default function BackgroundPlayer() {
       audio.pause();
     }
 
-    return () => {};
+    localStorage.setItem("bgMusicPlaying", JSON.stringify(isPlaying));
   }, [isPlaying]);
 
   return (

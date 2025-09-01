@@ -1,5 +1,3 @@
-import React from "react";
-
 import CreateAccountForm from "../components/CreateAccountForm";
 import PaperBox from "../components/PaperBox";
 import HogwartsLogo from "../assets/hogwarts.png";
