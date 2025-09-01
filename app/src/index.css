@@ -86,7 +86,7 @@ main {
 .option-btn {
   cursor: pointer;
   color: #fff;
-  margin: 10px;
+  margin: 5px;
   padding: 10px 20px;
   font-family: "Cinzel Decorative", serif;
   font-weight: 400;
@@ -201,7 +201,7 @@ nav {
 
 .content.quiz {
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -252,7 +252,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -337,7 +337,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .high-score-modal-content {
@@ -602,13 +602,13 @@ nav {
   align-items: center;
   justify-content: flex-end;
   gap: 10px;
-  width: 680px;
-  margin-top: 20px;
+  width: 650px;
 }
 
 .timer,
 .score {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 600;
   color: #000000;
   font-family: "Cinzel Decorative", serif;
   width: 90px;
