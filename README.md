@@ -1,4 +1,4 @@
-# Group_project_game
+# Harry Potter character quiz
 
 ## Project Overview:
 The goal of this project is to create a simple, interactive game using all of the tools that we have worked with troughout this course (HTML/CSS/JavaScript/React). The game will include a login system, allowing users to create accounts. Account details will be stored locally on the user’s computer. Additionally, the project will incorporate fetching data from an external API, enhancing the game with dynamic content.
