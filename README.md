@@ -24,3 +24,9 @@ A user-friendly interface that works seamlessly across different devices and scr
 
 ### State Management:
 Manage game state and user data effectively using React's state management (e.g., useState, useContext, ).
+
+
+***
+
+#### To start:
+- npm run dev / app
