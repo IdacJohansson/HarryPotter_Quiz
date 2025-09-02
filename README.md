@@ -29,4 +29,5 @@ Manage game state and user data effectively using React's state management (e.g.
 ***
 
 #### To start:
+- npm i / app
 - npm run dev / app
